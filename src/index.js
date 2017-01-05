@@ -29,10 +29,10 @@ class NoJSX {
     const isDangerouslyHTMLSet = data.props && data.props.dangerouslySetInnerHTML;
 
     // if `children` is a string, and `dangerouslySetInnerHTML`
-    // is not already set, and `escaped` setting is falsey -
+    // is not already set, and `escape` setting is falsey -
     // let's allow HTML. By default we allow HTML, but to escape
-    // it instead - `escaped` option may be set to `true`.
-    if (!data.escaped && typeof data.children === 'string' && !isDangerouslyHTMLSet) {
+    // it instead - `escape` option may be set to `true`.
+    if (!data.escape && typeof data.children === 'string' && !isDangerouslyHTMLSet) {
       const childProps = data.props || null;
       return this.createReactElement({
         ...data,

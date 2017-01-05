@@ -10,7 +10,7 @@ This mechanism utilizes `React.createElement` from the [React top-level API](htt
 
 A data object - tree representation of the React DOM to be created is passed into a compile function (see example below), to return the element. Each level in the tree should be an object representation of a React element. This representation is simply based on the arguments accepted by `React.createElement` - `props`, `type`, and `children`. `children` can be a string or an array of element representations. The top level of the tree represents the single React element container.
 
-By default elements are created using [`dangerouslySetInnerHTML`](https://facebook.github.io/react/docs/dom-elements.html#dangerouslysetinnerhtml). This can be overridden by using `escaped` element representation property (see example element representation below).
+By default elements are created using [`dangerouslySetInnerHTML`](https://facebook.github.io/react/docs/dom-elements.html#dangerouslysetinnerhtml). This can be overridden by using `escape` element representation property (see example element representation below).
 
 ## Installation
 
@@ -22,7 +22,8 @@ $ npm install react-nojsx --save
 
 ```javascript
 {
-  children: 'Hello World.'
+  children: 'Hello World.',
+  escape: true,
   props: {
     className: 'header header--page'
   },
@@ -30,7 +31,7 @@ $ npm install react-nojsx --save
 }
 ```
 
-Note: `escaped` is optional. Default is `false`.
+Note: `escape` is optional. Default is `false`.
 
 ## Example Usage
 

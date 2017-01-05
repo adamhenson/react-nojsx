@@ -22,14 +22,13 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var NoJSX = (function () {
+var NoJSX = function () {
   /**
    * @this {object} data - Data representation of React DOM tree
    *  to be created.
    * @this {number} elementsLength - Number of React elements
    *  created. This is used to set the `key` property for elements.
    */
-
   function NoJSX(data) {
     (0, _classCallCheck3.default)(this, NoJSX);
 
@@ -43,6 +42,7 @@ var NoJSX = (function () {
   /**
    * Return the element tree (parent, children, siblings).
    */
+
 
   (0, _createClass3.default)(NoJSX, [{
     key: 'compile',
@@ -60,10 +60,10 @@ var NoJSX = (function () {
       var isDangerouslyHTMLSet = data.props && data.props.dangerouslySetInnerHTML;
 
       // if `children` is a string, and `dangerouslySetInnerHTML`
-      // is not already set, and `escaped` setting is falsey -
+      // is not already set, and `escape` setting is falsey -
       // let's allow HTML. By default we allow HTML, but to escape
-      // it instead - `escaped` option may be set to `true`.
-      if (!data.escaped && typeof data.children === 'string' && !isDangerouslyHTMLSet) {
+      // it instead - `escape` option may be set to `true`.
+      if (!data.escape && typeof data.children === 'string' && !isDangerouslyHTMLSet) {
         var childProps = data.props || null;
         return this.createReactElement((0, _extends3.default)({}, data, {
           props: (0, _extends3.default)({}, childProps, {
@@ -98,7 +98,7 @@ var NoJSX = (function () {
     }
   }]);
   return NoJSX;
-})();
+}();
 
 exports.default = NoJSX;
 module.exports = exports['default'];
