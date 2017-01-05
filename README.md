@@ -43,10 +43,11 @@ Note: `escaped` is optional. Default is `false`.
 
 ```javascript
 import { Component } from 'react';
+// using Helmet as an example React element.
 import Helmet from 'react-helmet';
 import Nojsx from 'react-nojsx';
 
-export default class HomePrelaunchView extends Component {
+export default class App extends Component {
 
   // ...
 
