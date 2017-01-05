@@ -22,7 +22,7 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Nojsx = (function () {
+var NoJSX = (function () {
   /**
    * @this {object} data - Data representation of React DOM tree
    *  to be created.
@@ -30,8 +30,8 @@ var Nojsx = (function () {
    *  created. This is used to set the `key` property for elements.
    */
 
-  function Nojsx(data) {
-    (0, _classCallCheck3.default)(this, Nojsx);
+  function NoJSX(data) {
+    (0, _classCallCheck3.default)(this, NoJSX);
 
     this.data = data;
     this.elementsLength = 0;
@@ -44,7 +44,7 @@ var Nojsx = (function () {
    * Return the element tree (parent, children, siblings).
    */
 
-  (0, _createClass3.default)(Nojsx, [{
+  (0, _createClass3.default)(NoJSX, [{
     key: 'compile',
     value: function compile() {
       return this.createReactElement(this.data);
@@ -97,8 +97,8 @@ var Nojsx = (function () {
       return _react2.default.createElement(data.type, props, children);
     }
   }]);
-  return Nojsx;
+  return NoJSX;
 })();
 
-exports.default = Nojsx;
+exports.default = NoJSX;
 module.exports = exports['default'];

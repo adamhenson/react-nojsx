@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Nojsx {
+class NoJSX {
   /**
    * @this {object} data - Data representation of React DOM tree
    *  to be created.
@@ -67,4 +67,4 @@ class Nojsx {
   }
 }
 
-export default Nojsx;
+export default NoJSX;

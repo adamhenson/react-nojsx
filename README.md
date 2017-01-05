@@ -1,4 +1,4 @@
-# Nojsx
+# NoJSX
 
 <!---
 Will add this soon
@@ -38,7 +38,7 @@ Note: `escaped` is optional. Default is `false`.
 import { Component } from 'react';
 // using Helmet as an example React element.
 import Helmet from 'react-helmet';
-import Nojsx from 'react-nojsx';
+import NoJSX from 'react-nojsx';
 
 export default class App extends Component {
 
@@ -84,7 +84,7 @@ export default class App extends Component {
     };
   }
 
-  const template = new Nojsx(templateData);
+  const template = new NoJSX(templateData);
   return template.compile();
 }
 
