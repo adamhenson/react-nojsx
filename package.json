@@ -1,0 +1,43 @@
+{
+  "name": "react-nojsx",
+  "description": "A JSON based alternative to JSX.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Adam Henson",
+    "email": "adamhenson1979@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/adamhenson/react-nojsx/issues"
+  },
+  "engines": {
+    "node": ">= 4.4.1"
+  },
+  "homepage": "https://github.com/adamhenson/react-nojsx.git",
+  "keywords": [
+    "react",
+    "nojsx",
+    "jsx",
+    "template",
+    "view",
+    "json"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamhenson/react-nojsx.git"
+  },
+  "dependencies": {
+    "react": "^15.3.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.12",
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.0"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha ./test/*",
+    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*"
+  }
+}
