@@ -56,7 +56,7 @@ export default class App extends Component {
       title
     } = this.props;
 
-    const template = {
+    const templateData = {
       children: [
         {
           props: {
@@ -91,6 +91,7 @@ export default class App extends Component {
     };
   }
 
+  const template = new Nojsx(templateData);
   return template.compile();
 }
 
