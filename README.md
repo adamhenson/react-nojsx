@@ -18,13 +18,6 @@ By default elements are created using [`dangerouslySetInnerHTML`](https://facebo
 $ npm install react-nojsx --save
 ```
 
-## Dependencies
-
-ES2015
-
-- [Spread operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator).
-- [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
-
 ## Example Element Representation
 
 ```javascript
