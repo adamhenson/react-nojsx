@@ -1,6 +1,6 @@
 'use script';
 
-const React = require('react');
+import React from 'react';
 
 class Nojsx {
   /**
