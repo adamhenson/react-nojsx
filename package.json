@@ -1,7 +1,7 @@
 {
   "name": "react-nojsx",
   "description": "A JSON based alternative to JSX.",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": {
     "name": "Adam Henson",
     "email": "adamhenson1979@gmail.com"
@@ -43,7 +43,7 @@
     "mocha": "^3.0.0"
   },
   "scripts": {
-    "postinstall" : "babel src/index.js --out-file dist/index.js",
+    "build" : "babel src/index.js --out-file dist/index.js",
     "test": "./node_modules/mocha/bin/mocha ./test/*",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*"
   }
