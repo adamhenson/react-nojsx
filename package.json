@@ -40,19 +40,13 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "babili": "0.0.9",
-    "chai": "^3.5.0",
-    "coveralls": "^2.11.12",
-    "enzyme": "^2.7.0",
-    "istanbul": "^0.4.4",
     "jest": "^18.1.0",
-    "mocha": "^3.0.0",
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-test-renderer": "^15.4.1"
   },
   "scripts": {
     "build": "babel src/index.js --out-file dist/index.js",
-    "test": "jest",
-    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*"
+    "test": "jest"
   }
 }
