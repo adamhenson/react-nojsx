@@ -8,7 +8,7 @@ Will add this soon
 
 This mechanism utilizes `React.createElement` from the [React top-level API](https://facebook.github.io/react/docs/react-api.html#createelement).
 
-The data object is passed in on construction. The `compile` method (see example below) returns a React element. Each element representation in the tree-like object has properties based on the arguments accepted by `React.createElement`. **There are only 3 properties that are important to set in this element object representation:** `props`, `type`, and `children` (there is one additional property named `escape` described below). `children` can be a string or an array of child element representations. The top level of the tree represents the single React element container.
+The data object is passed in on construction. The `compile` method (see example below) returns a single React element. Each element representation in the tree-like object has properties based on the arguments accepted by `React.createElement`. **There are only 3 properties that are important to set in this element object representation:** `props`, `type`, and `children` (there is one additional property named `escape` described below).
 
 By default elements are created using [`dangerouslySetInnerHTML`](https://facebook.github.io/react/docs/dom-elements.html#dangerouslysetinnerhtml). This can be overridden by using `escape` element representation property (see example below).
 
@@ -95,4 +95,4 @@ export default class App extends Component {
 ```
 
 ## Want More?
-More documentation, testing and examples coming soon.
+More documentation and examples coming soon.
