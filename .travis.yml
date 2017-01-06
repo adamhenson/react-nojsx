@@ -1,6 +1,16 @@
 language: node_js
+
 node_js:
- - "4.4.1"
-script: "npm test"
-# Send coverage data to Coveralls
-# after_script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  - "4.4.1"
+
+sudo: false
+
+cache:
+  directories:
+    - "node_modules"
+
+before_install:
+  - npm install npm@latest
+
+script:
+  - npm test
