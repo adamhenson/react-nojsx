@@ -48,6 +48,6 @@
   },
   "scripts": {
     "build": "babel src/index.js --out-file dist/index.js",
-    "test": "jest"
+    "test": "jest --forceExit"
   }
 }
