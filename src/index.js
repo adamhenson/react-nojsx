@@ -26,8 +26,7 @@ class NoJSX {
   createReactElement(data) {
     this.elementsLength++;
 
-    const props = NoJSX.getNewProps(data);
-
+    const props = NoJSX.getNewProps(data, this.elementsLength);
     const children = (!Array.isArray(data.children))
       ? data.children
       : data.children.map((child) => this.createReactElement(child));
@@ -45,11 +44,11 @@ class NoJSX {
    * `key` based on the index of the element in the tree.
    * It also assigns `dangerouslySetInnerHTML`.
    */
-  static getNewProps(data) {
+  static getNewProps(data, key) {
     const isDangerouslyHTMLSet = data.props && data.props.dangerouslySetInnerHTML;
     const props = (!data.props)
-      ? { key: this.elementsLength }
-      : { ...data.props, key: this.elementsLength };
+      ? { key }
+      : { ...data.props, key };
     
     // if `children` is a string, and `dangerouslySetInnerHTML`
     // is not already set, and `escape` setting is falsey -
