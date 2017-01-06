@@ -4,13 +4,13 @@
 Will add this soon
 [![Build Status](https://api.travis-ci.org/adamhenson/http2-pusher.svg?branch=master)](https://travis-ci.org/adamhenson/http2-pusher)
 -->
-> A JSON based alternative to JSX. Accepts a simple tree object, and returns a React element including any number of children, and children of children.
+> A JSON based alternative to JSX. Accepts a simple tree shaped, DOM representing object, and returns a React element. This element could host any number of children and granchildren defined by a `children` property. The `children` property is either an HTML (or text) string or an array of children element references.
 
-This mechanism utilizes `React.createElement` from the [React top-level API](https://facebook.github.io/react/docs/react-api.html#createelement), to return one single element with all children element references converted to React elements.
+This mechanism utilizes `React.createElement` from the [React top-level API](https://facebook.github.io/react/docs/react-api.html#createelement).
 
-A data object - tree representation of the React DOM to be created is passed into a compile function (see example below), to return the element. Each level in the tree should be an object representation of a React element. This representation is simply based on the arguments accepted by `React.createElement` - `props`, `type`, and `children`. `children` can be a string or an array of element representations. The top level of the tree represents the single React element container.
+The data object is passed in on construction. The `compile` method (see example below) returns a React element. Each element representation in the tree-like object has properties based on the arguments accepted by `React.createElement`. *There are only 3:* `props`, `type`, and `children`. `children` can be a string or an array of child element representations. The top level of the tree represents the single React element container.
 
-By default elements are created using [`dangerouslySetInnerHTML`](https://facebook.github.io/react/docs/dom-elements.html#dangerouslysetinnerhtml). This can be overridden by using `escape` element representation property (see example element representation below).
+By default elements are created using [`dangerouslySetInnerHTML`](https://facebook.github.io/react/docs/dom-elements.html#dangerouslysetinnerhtml). This can be overridden by using `escape` element representation property (see example below).
 
 ## Installation
 
