@@ -35,7 +35,7 @@ Note: `escape` is optional. Default is `false`.
 
 ## Example Usage
 
-NoJSX could be used in several ways, such as in smaller `compiled` pieces... or even combined with JSX! Below is an example of potentially the most common use case. More examples coming soon.
+NoJSX could be used in several ways, such as in smaller pieces... or even combined with JSX! Below is an example of potentially the most common use case. More examples coming soon.
 
 ```javascript
 import { Component } from 'react';
