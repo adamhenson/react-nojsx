@@ -10,9 +10,6 @@ class NoJSX {
   constructor(data) {
     this.data = data;
     this.elementsLength = 0;
-
-    // bind methods to `this`...
-    this.createReactChildElement = this.createReactChildElement.bind(this);
   }
 
   /**
@@ -23,47 +20,49 @@ class NoJSX {
   }
 
   /**
-   * Return a React child element.
-   */
-  createReactChildElement(data) {
-    const isDangerouslyHTMLSet = data.props && data.props.dangerouslySetInnerHTML;
-
-    // if `children` is a string, and `dangerouslySetInnerHTML`
-    // is not already set, and `escape` setting is falsey -
-    // let's allow HTML. By default we allow HTML, but to escape
-    // it instead - `escape` option may be set to `true`.
-    if (!data.escape && typeof data.children === 'string' && !isDangerouslyHTMLSet) {
-      const childProps = data.props || null;
-      return this.createReactElement({
-        ...data,
-        props: {
-          ...childProps,
-          dangerouslySetInnerHTML: { __html: data.children }
-        }
-      });
-    }
-
-    return this.createReactElement(data);
-  }
-
-  /**
    * Return a React element. The data object is recursively
    * traversed to create elements for all children.
    */
   createReactElement(data) {
     this.elementsLength++;
 
-    const props = {
-      ...data.props,
-      key: this.elementsLength
-    };
+    const props = NoJSX.getNewProps(data);
 
-    let children = null;
-    if (Array.isArray(data.children)) {
-      children = data.children.map(this.createReactChildElement);
+    const children = (!Array.isArray(data.children))
+      ? data.children
+      : data.children.map((child) => this.createReactElement(child));
+
+    // if `dangerouslySetInnerHTML` is set - `children` shouldn't be.
+    if (props.dangerouslySetInnerHTML) {
+      return React.createElement(data.type, props);
     }
 
     return React.createElement(data.type, props, children);
+  }
+
+  /**
+   * Return new `props`. This is necessary to generate a
+   * `key` based on the index of the element in the tree.
+   * It also assigns `dangerouslySetInnerHTML`.
+   */
+  static getNewProps(data) {
+    const isDangerouslyHTMLSet = data.props && data.props.dangerouslySetInnerHTML;
+    const props = (!data.props)
+      ? { key: this.elementsLength }
+      : { ...data.props, key: this.elementsLength };
+    
+    // if `children` is a string, and `dangerouslySetInnerHTML`
+    // is not already set, and `escape` setting is falsey -
+    // let's allow HTML. By default we allow HTML, but to escape
+    // it instead - `escape` option may be set to `true`.
+    if (!data.escape && typeof data.children === 'string' && !isDangerouslyHTMLSet) {
+      return {
+        ...props,
+        dangerouslySetInnerHTML: { __html: data.children }
+      };
+    }
+
+    return props;
   }
 }
 
