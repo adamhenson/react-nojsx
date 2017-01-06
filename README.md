@@ -1,9 +1,7 @@
 # NoJSX
 
-<!---
-Will add this soon
-[![Build Status](https://api.travis-ci.org/adamhenson/http2-pusher.svg?branch=master)](https://travis-ci.org/adamhenson/http2-pusher)
--->
+[![Build Status](https://api.travis-ci.org/adamhenson/react-nojsx.svg?branch=master)](https://travis-ci.org/adamhenson/react-nojsx)
+
 > A JSON based alternative to JSX. Accepts a simple tree shaped, DOM representing object, and returns a React element. This element could host any number of children and granchildren defined by a `children` property. The `children` property is either an HTML (or text) string or an array of children element references.
 
 This mechanism utilizes `React.createElement` from the [React top-level API](https://facebook.github.io/react/docs/react-api.html#createelement).
