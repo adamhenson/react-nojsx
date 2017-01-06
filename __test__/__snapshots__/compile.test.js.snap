@@ -1,0 +1,38 @@
+exports[`compile() creates elements correctly. creates a new "div" React element and a child element defined in "children"... and "props". 1`] = `
+<div
+  className="foo">
+  <div
+    className="bar"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "hello world.",
+      }
+    } />
+</div>
+`;
+
+exports[`compile() creates elements correctly. creates a new "div" React element type with text "children" and "props". 1`] = `
+<div
+  className="foobar"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "hello world.",
+    }
+  } />
+`;
+
+exports[`compile() creates elements correctly. creates a new "div" React element type with text "children". 1`] = `
+<div
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "hello world.",
+    }
+  } />
+`;
+
+exports[`compile() creates elements correctly. creates a new custom React component element type with "props". 1`] = `
+<div
+  className="foobar">
+  hello world.
+</div>
+`;

@@ -47,7 +47,8 @@
     "jest": "^18.1.0",
     "mocha": "^3.0.0",
     "react-addons-test-utils": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "react-test-renderer": "^15.4.1"
   },
   "scripts": {
     "build": "babel src/index.js --out-file dist/index.js",
