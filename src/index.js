@@ -23,8 +23,14 @@ class NoJSX {
    * Return a React element. The data object is recursively
    * traversed to create elements for all children.
    */
-  createReactElement(data) {
+  createReactElement(elementReference) {
     this.elementsLength++;
+
+    // if element is only a string - let's go ahead and convert
+    // it to a <span>.
+    const data = (typeof elementReference !== 'string')
+      ? elementReference
+      : { children: elementReference, type: 'span' };
 
     const props = NoJSX.getNewProps(data, this.elementsLength);
     const children = (!Array.isArray(data.children))
@@ -44,20 +50,20 @@ class NoJSX {
    * `key` based on the index of the element in the tree.
    * It also assigns `dangerouslySetInnerHTML`.
    */
-  static getNewProps(data, key) {
-    const isDangerouslyHTMLSet = data.props && data.props.dangerouslySetInnerHTML;
-    const props = (!data.props)
+  static getNewProps(elementReference, key) {
+    const isDangerouslyHTMLSet = elementReference.props && elementReference.props.dangerouslySetInnerHTML;
+    const props = (!elementReference.props)
       ? { key }
-      : { ...data.props, key };
+      : { ...elementReference.props, key };
     
     // if `children` is a string, and `dangerouslySetInnerHTML`
     // is not already set, and `escape` setting is falsey -
     // let's allow HTML. By default we allow HTML, but to escape
     // it instead - `escape` option may be set to `true`.
-    if (!data.escape && typeof data.children === 'string' && !isDangerouslyHTMLSet) {
+    if (!elementReference.escape && typeof elementReference.children === 'string' && !isDangerouslyHTMLSet) {
       return {
         ...props,
-        dangerouslySetInnerHTML: { __html: data.children }
+        dangerouslySetInnerHTML: { __html: elementReference.children }
       };
     }
 
