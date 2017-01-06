@@ -1,7 +1,7 @@
 {
   "name": "react-nojsx",
   "description": "A JSON based alternative to JSX.",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": {
     "name": "Adam Henson",
     "email": "adamhenson1979@gmail.com"
