@@ -54,18 +54,14 @@ export default class App extends Component {
     const templateData = {
       children: [
         {
-          props: {
-            title
-          },
+          props: { title },
           type: Helmet
         },
         {
           children: [
             {
               children: 'Hello Page Header.',
-              props: {
-                className: 'header header--page'
-              },
+              props: { className: 'header header--page' },
               type: 'h1'
             },
             {
@@ -79,17 +75,54 @@ export default class App extends Component {
           type: 'div'
         },
       ],
-      props: {
-        className: 'container container--app'
-      },
+      props: { className: 'container container--app' },
       type: 'div'
     };
-  }
 
-  const template = new NoJSX(templateData);
-  return template.compile();
+    const template = new NoJSX(templateData);
+    return template.compile();
+  }
 }
 
+```
+
+Or you could write it like this (the contents of the `render` function above):
+
+```javascript
+const {
+  title
+} = this.props;
+
+const pageHeaderData = {
+  children: [
+    {
+      children: 'Hello Page Header.',
+      props: { className: 'header header--page' },
+      type: 'h1'
+    },
+    {
+      children: '<strong>Lorem ipsum dolor sit amet</strong>, consectetur adipiscing elit.',
+      type: 'p'
+    }
+  ],
+  props: { className: 'jumbotron' },
+  type: 'div'
+};
+
+const templateData = {
+  children: [
+    {
+      props: { title },
+      type: Helmet
+    },
+    pageHeaderData
+  ],
+  props: { className: 'container container--app' },
+  type: 'div'
+};
+
+const template = new NoJSX(templateData);
+return template.compile();
 ```
 
 ## Want More?
