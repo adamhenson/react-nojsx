@@ -22,9 +22,7 @@ $ npm install react-nojsx --save
 {
   children: 'Hello World.',
   escape: true,
-  props: {
-    className: 'header header--page'
-  },
+  props: { className: 'header header--page' },
   type: 'div'
 }
 ```
