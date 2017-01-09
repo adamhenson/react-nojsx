@@ -33,9 +33,18 @@ class NoJSX {
       : { children: elementReference, type: 'span' };
 
     const props = NoJSX.getNewProps(data, this.elementsLength);
-    const children = (!Array.isArray(data.children))
-      ? data.children
-      : data.children.map((child) => this.createReactElement(child));
+
+    let children = null;
+    if (Array.isArray(data.children)) {
+      // if there is only one child, `children` needs to be an object
+      // data type... otherwise we could face issues with `React.Children.only`
+      // seen here: https://github.com/facebook/react/issues/4424.
+      children = (data.children.length === 1)
+        ? this.createReactElement(data.children[0])
+        : data.children.map((child) => this.createReactElement(child));
+    } else if (typeof data.children === 'object') {
+      children = this.createReactElement(data.children);
+    }
 
     // if `dangerouslySetInnerHTML` is set - `children` shouldn't be.
     if (props.dangerouslySetInnerHTML) {
@@ -55,7 +64,7 @@ class NoJSX {
     const props = (!elementReference.props)
       ? { key }
       : { ...elementReference.props, key };
-    
+
     // if `children` is a string, and `dangerouslySetInnerHTML`
     // is not already set, and `escape` setting is falsey -
     // let's allow HTML. By default we allow HTML, but to escape
