@@ -31,6 +31,24 @@ $ npm install react-nojsx --save
 
 Note: `escape` is optional. Default is `false`.
 
+## Keys
+
+By default NoJSX will generate [keys](https://facebook.github.io/react/docs/lists-and-keys.html#keys) for every element created. This can be overidden by specifying a `key` as part of the `props` property, however please ensure the strength of uniqueness is high. NoJSX generates keys based on the index of the element created. This may change in the future. The safest way to override the keys would be to prepend the string value with a prefix.
+
+Example:
+
+```javascript
+{
+  children: 'Hello World.',
+  escape: true,
+  props: {
+    className: 'header header--page',
+    key: 'foo_123'
+  },
+  type: 'div'
+}
+```
+
 ## Example Usage
 
 NoJSX could be used in several ways, such as in smaller pieces... or even combined with JSX! Below is an example of potentially the most common use case. More examples coming soon.
