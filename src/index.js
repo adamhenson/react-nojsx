@@ -24,6 +24,10 @@ class NoJSX {
    * traversed to create elements for all children.
    */
   createReactElement(elementReference) {
+    if (!elementReference) {
+      return null;
+    }
+
     this.elementsLength++;
 
     // if element is only a string - let's go ahead and convert
