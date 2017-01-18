@@ -9,6 +9,7 @@ class NoJSX {
    */
   constructor(data) {
     this.data = data;
+    this.parentKey = data.parentKey || null;
     this.elementsLength = 0;
   }
 
@@ -36,7 +37,11 @@ class NoJSX {
       ? elementReference
       : { children: elementReference, type: 'span' };
 
-    const props = NoJSX.getNewProps(data, this.elementsLength);
+    const key = (!this.parentKey)
+      ? this.elementsLength
+      : `${this.parentKey}_${this.elementsLength}`;
+
+    const props = NoJSX.getNewProps(data, key);
 
     let children = null;
     if (Array.isArray(data.children)) {
