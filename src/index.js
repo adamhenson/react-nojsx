@@ -37,9 +37,15 @@ class NoJSX {
       ? elementReference
       : { children: elementReference, type: 'span' };
 
-    const key = (!this.parentKey)
-      ? this.elementsLength
-      : `${this.parentKey}_${this.elementsLength}`;
+    // by default, set the key to the index of the React element.
+    let key = this.elementsLength;
+
+    // allow key override... or parent key prefix.
+    if (elementReference.props && elementReference.props.key) {
+      key = elementReference.props.key;
+    } else if (this.parentKey) {
+      key = `${this.parentKey}_${this.elementsLength}`;
+    }
 
     const props = NoJSX.getNewProps(data, key);
 
